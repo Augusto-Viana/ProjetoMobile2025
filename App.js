@@ -12,7 +12,7 @@ export default function App() { //Puxa os componentes e os mostra
       {/* <Favorites/> */}
       {/*<Teste1/>*/}
       {/* <Home/> */}
-      <Login/>
+      {/* <Login/> */}
     </View>
   );
 }

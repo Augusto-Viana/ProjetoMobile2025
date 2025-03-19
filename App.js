@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 import {Gallery, Profile, Favorites} from "./components/gallery";
-import {Teste1} from "./components/teste";
+import {Teste} from "./components/teste";
 import {Home} from "./screens/home";
 import {Login} from "./screens/login";
+import 'react-native-gesture-handler';
 
 export default function App() { //Puxa os componentes e os mostra
   return (

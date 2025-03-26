@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View, Image, TextInput, ImageBackground, Button} from "react-native"
 
-export function Login () {
+export function Login ({navigation}) {
     return(
     <View style={styles.login}>
         <View style={styles.box}>
@@ -12,7 +12,8 @@ export function Login () {
                 <TextInput style={styles.input2} placeholder='Digite sua idade aqui: '/>
             </View>
             <View style={styles.button}>
-                <Button title="LOGIN" color="#000000"/>
+                <Button title="LOGIN" color="#DB0F00"
+                onPress={() => navigation.navigate('Home')}/>
             </View>
         </View>  
     </View>
@@ -23,7 +24,7 @@ export function Login () {
 const styles = StyleSheet.create({
 login: {
     flex: 1,
-    backgroundColor: '#D4D4D4',
+    backgroundColor: '#000',
     fontSize: 20,
 },
 text: {
@@ -31,7 +32,8 @@ text: {
     fontSize: 40,
     justifyContent: "center",
     alignItems: "center",
-    display: "flex"
+    display: "flex",
+    color: "#DB0F00"
 },
 input:{
     justifyContent: "center",
@@ -46,7 +48,9 @@ input2: {
     padding: 10,
     justifyContent: "center",
     borderCurve: "circular",
-    alignItems: "center"
+    alignItems: "center",
+    color: "#DB0F00",
+   borderColor: "#DB0F00",
 },
 button: {
     display: "flex",

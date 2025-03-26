@@ -3,16 +3,18 @@ import {StyleSheet, Text, View, Image, TextInput, ImageBackground, Button} from 
 export function Login () {
     return(
     <View style={styles.login}>
-        <View>
-            <Text style={styles.text}>LOGIN DA ZÉCAFLIX</Text>
-        </View>
-        <View style={styles.input}>
-            <TextInput style={styles.input2} placeholder='Digite seu nome aqui: '/>
-            <TextInput style={styles.input2} placeholder='Digite sua idade aqui: '/>
-        </View>
-        <View style={styles.button}>
-            <Button title="LOGIN" color="#000000"/>
-        </View>
+        <View style={styles.box}>
+            <View>
+                <Text style={styles.text}>LOGIN DA ZÉCAFLIX</Text>
+            </View>
+            <View style={styles.input}>
+                <TextInput style={styles.input2} placeholder='Digite seu nome aqui: '/>
+                <TextInput style={styles.input2} placeholder='Digite sua idade aqui: '/>
+            </View>
+            <View style={styles.button}>
+                <Button title="LOGIN" color="#000000"/>
+            </View>
+        </View>  
     </View>
     
 );
@@ -21,7 +23,7 @@ export function Login () {
 const styles = StyleSheet.create({
 login: {
     flex: 1,
-    backgroundColor: '#D3D3D3',
+    backgroundColor: '#D4D4D4',
     fontSize: 20,
 },
 text: {
@@ -50,5 +52,11 @@ button: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+},
+box: {
+    flex: 1,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",    
 }
 })

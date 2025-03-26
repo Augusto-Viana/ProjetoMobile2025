@@ -1,25 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native';
-import {Gallery, Profile, Favorites} from "./components/gallery";
-import {Teste} from "./components/teste";
-import {Home} from "./screens/home";
-import {Login} from "./screens/login";
 import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() { //Puxa os componentes e os mostra
+import {Home} from "./source/screens/home.js";
+import {Login} from "./source/screens/login.js";
+
+export default function App() { 
+
+  const Stack = createStackNavigator();
+
   return (
-    <View style={styles.container}> 
-      {/* <Profile/> */}
-      {/* <Gallery/> */}
-      {/* <Favorites/> */}
-      {/*<Teste1/>*/}
-      {/* <Home/> */}
-      {/* <Login/> */}
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Login' component={Login}/>
+        <Stack.Screen name='Home' component={Home}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({ //Criação da página
-  container: {
-    flex: 1,
-  },
-});
+

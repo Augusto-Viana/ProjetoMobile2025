@@ -13,7 +13,7 @@ export function Login ({navigation}) {
             </View>
             <View style={styles.button}>
                 <Button title="LOGIN" color="#DB0F00"
-                onPress={() => navigation.navigate('Home')}/>
+                onPress={() => navigation.navigate('Tabs')}/>
             </View>
         </View>  
     </View>

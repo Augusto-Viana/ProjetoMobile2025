@@ -19,7 +19,7 @@ export function Home () {
             <Image style={styles.img2} source={{uri:'https://m.media-amazon.com/images/M/MV5BMjU0NWMzOWMtZjM0MC00ZTE0LThmYzItZGQ1N2JmNDU1NGI4XkEyXkFqcGc@._V1_.jpg'}}/>
             <Image style={styles.img2} source={{uri:'https://i.ebayimg.com/images/g/3TYAAOSwO0lkwEQu/s-l400.jpg'}}/>
         </View>
-    </View>        
+    </View>              
 );
 }
 
@@ -36,12 +36,12 @@ home: {
     fontSize: 20,
 },
 img1 : {
-    width: 200,
-    height: 200,
+    width: 150,
+    height: 150,
 },
 img2 : {
-    width: 200,
-    height: 200,
+    width: 150,
+    height: 150,
 },
 text1: {
     flex: 1

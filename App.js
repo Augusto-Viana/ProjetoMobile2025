@@ -11,6 +11,8 @@ import Counter from './source/screens/counter.js';
 import Feather from '@expo/vector-icons/Feather';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import Products from './source/screens/products.js';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 function Tabs() {
 
@@ -47,6 +49,13 @@ function Tabs() {
       options={{
         tabBarIcon: () => (
           <MaterialCommunityIcons name="counter" size={24} color="red" />
+        ),
+      }}
+    />
+        <Tabs.Screen name='Products' component={Products}
+      options={{
+        tabBarIcon: () => (
+          <FontAwesome5 name="shopping-cart" size={24} color="red" />
         ),
       }}
     />

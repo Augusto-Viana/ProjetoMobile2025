@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { TextInput } from "react-native-gesture-handler";
 
 export default function Counter ({navigation}) {
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(0);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
 
     function Up() {
         setCounter(counter + 1)
@@ -14,7 +16,7 @@ export default function Counter ({navigation}) {
         }
     }
 
-    return(
+    return (
         <View style={styles.container}>
             <Text style={styles.title}>Zécaflix Counter Max</Text>
             <Text style={styles.text}>Contador: {counter}</Text>
@@ -30,9 +32,10 @@ export default function Counter ({navigation}) {
             </View>
 
             <View style={styles.input}>
-                <TextInput placeholder='Nome: ' placeholderTextColor={'red'}/>
-                <TextInput placeholder='E-mail: ' placeholderTextColor={'red'}/>
+                <TextInput placeholder='Nome: ' placeholderTextColor={'red'} value={name} onChangeText={setName} style={styles.inputText}/>
+                <TextInput placeholder='E-mail: ' placeholderTextColor={'red'} value={email} onChangeText={setEmail} style={styles.inputText}/>
             </View>
+            <Text style={styles.text}>Oi, {name}, seu e-mail é {email}</Text>
         </View>
     )
 }
@@ -59,7 +62,7 @@ const styles = StyleSheet.create ({
         width: "100%",
     },
     button: {
-        backgroundColor: '#DB0F00',
+        backgroundColor: "#DB0F00",
         width: 100,
         height: 50,
         borderRadius: 20
@@ -72,4 +75,8 @@ const styles = StyleSheet.create ({
     input: {
         fontSize: 20,
     },
+    inputText: {
+        color: "#DB0F00",
+        borderColor: "#DB0F00"
+    }
 })

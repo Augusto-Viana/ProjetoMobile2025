@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, Image, TextInput, ImageBackground, Button, ScrollView} from "react-native"
 
 export function Feed ({navigation}) {
-    return(
+    return (
         <ScrollView>
             <View style={styles.feed}>
                 <Text style={styles.titulo}>Feed da Zécaflix</Text>

@@ -1,7 +1,7 @@
-import {StyleSheet, Text, View, Image, ImageBackground} from "react-native"
+import {StyleSheet, Text, View, Image, ImageBackground} from "react-native";
 
 export function Home () {
-    return(
+    return (
         <View style={styles.home}>
             <ImageBackground style={{flex: 1, widht: '100%', heigh: '100%'}} source={{uri:'https://i.etsystatic.com/isla/b8f44b/61203385/isla_500x500.61203385_gdh223of.jpg?version=0'}}>
             </ImageBackground>

@@ -1,6 +1,23 @@
-import {StyleSheet, Text, View, Image, TextInput, ImageBackground, Button} from "react-native";
+import {StyleSheet, Text, View, TextInput, Button} from "react-native";
+import { useState } from "react";
+import {signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../services/controller";
 
 export function Login ({navigation}) {
+    const [email, setEmail] = useState("");
+    const [password, setSenha] = useState("");
+
+    const VerifyUser = () => {
+        signInWithEmailAndPassword(auth, email, password)
+        .then(userCredential => {
+            console.log('Usuário logado com sucesso!!!', userCredential.user.email)
+            navigation.navigate('Tabs')
+        })
+        .catch((error) => {
+            console.log('erro!', error.message);
+        })
+    }
+
     return (
     <View style={styles.login}>
         <View style={styles.box}>
@@ -8,12 +25,25 @@ export function Login ({navigation}) {
                 <Text style={styles.text}>LOGIN DA ZÉCAFLIX</Text>
             </View>
             <View style={styles.input}>
-                <TextInput style={styles.input2} placeholder='Digite seu nome aqui: '/>
-                <TextInput style={styles.input2} placeholder='Digite sua idade aqui: '/>
+                <TextInput style={styles.input2} 
+                placeholder='E-mail' 
+                value={email}
+                onChangeText={setEmail}/>
+            </View>
+            <View style={styles.input}>
+                <TextInput style={styles.input2} 
+                    placeholder='Senha' 
+                    value={password}
+                    onChangeText={setSenha}
+                    secureTextEntry = {true}/>
             </View>
             <View style={styles.button}>
-                <Button title="LOGIN" color="#DB0F00"
-                onPress={() => navigation.navigate('Tabs')}/>
+                <Button title="ENTRAR" color="#DB0F00"
+                onPress={VerifyUser}/>
+            </View>
+            <View style={styles.button}>
+                <Button title="CADASTRAR-SE" color="#DB0F00"
+                onPress={() => navigation.navigate('Register')}/>
             </View>
         </View>  
     </View>
@@ -49,12 +79,13 @@ const styles = StyleSheet.create({
         borderCurve: "circular",
         alignItems: "center",
         color: "#DB0F00",
-    borderColor: "#DB0F00",
+        borderColor: "#DB0F00",
     },
     button: {
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "space-between",
         alignItems: "center",
+        padding: 10,
     },
     box: {
         flex: 1,

@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -7,6 +8,7 @@ import {Home} from "./source/screens/home.js";
 import {Login} from "./source/screens/login.js";
 import {Feed} from "./source/screens/feed.js";
 import Counter from './source/screens/counter.js';
+import Register from './source/screens/register.js';
 
 import Feather from '@expo/vector-icons/Feather';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
@@ -71,6 +73,13 @@ const Stack = createStackNavigator();
     <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name='Login' component={Login}
+          options={{
+            headerStyle: {backgroundColor: "#000"},
+            headerTintColor: "#DB0F00",
+            headerTitleAlign: "center",
+          }}
+          />
+          <Stack.Screen name='Register' component={Register}
           options={{
             headerStyle: {backgroundColor: "#000"},
             headerTintColor: "#DB0F00",

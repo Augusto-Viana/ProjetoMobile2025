@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, TextInput, Button} from "react-native";
+import {StyleSheet, Text, View, TextInput, Button, TouchableOpacity} from "react-native";
 import { useState } from "react";
 import {signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../services/controller";
@@ -26,13 +26,13 @@ export function Login ({navigation}) {
             </View>
             <View style={styles.input}>
                 <TextInput style={styles.input2} 
-                placeholder='E-mail' 
+                placeholder='E-mail: ' 
                 value={email}
                 onChangeText={setEmail}/>
             </View>
             <View style={styles.input}>
                 <TextInput style={styles.input2} 
-                    placeholder='Senha' 
+                    placeholder='Senha: ' 
                     value={password}
                     onChangeText={setSenha}
                     secureTextEntry = {true}/>
@@ -41,10 +41,13 @@ export function Login ({navigation}) {
                 <Button title="ENTRAR" color="#DB0F00"
                 onPress={VerifyUser}/>
             </View>
-            <View style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+                <Text style={styles.link}>Ainda não tem uma conta? Cadastre-se aqui.</Text>
+            </TouchableOpacity>
+            {/* <View style={styles.button}>
                 <Button title="CADASTRAR-SE" color="#DB0F00"
                 onPress={() => navigation.navigate('Register')}/>
-            </View>
+            </View> */}
         </View>  
     </View>
 );
@@ -92,5 +95,9 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",    
+    },    
+    link: {
+        textDecorationLine: "underline",
+        color: "#DB0F00",
     }
 })

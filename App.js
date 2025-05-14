@@ -9,12 +9,15 @@ import {Login} from "./source/screens/login.js";
 import {Feed} from "./source/screens/feed.js";
 import Counter from './source/screens/counter.js';
 import Register from './source/screens/register.js';
+import AddProducts from './source/screens/addProducts.js';
 
 import Feather from '@expo/vector-icons/Feather';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Products from './source/screens/products.js';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import AntDesign from '@expo/vector-icons/AntDesign';
+
 
 function Tabs() {
 
@@ -54,10 +57,17 @@ function Tabs() {
         ),
       }}
     />
-        <Tabs.Screen name='Products' component={Products}
+    <Tabs.Screen name='Products' component={Products}
       options={{
         tabBarIcon: () => (
           <FontAwesome5 name="shopping-cart" size={24} color="red" />
+        ),
+      }}
+    />
+    <Tabs.Screen name='AddProducts' component={AddProducts}
+      options={{
+        tabBarIcon: () => (
+          <AntDesign name="plus" size={24} color="red" />
         ),
       }}
     />

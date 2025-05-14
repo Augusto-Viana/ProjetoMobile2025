@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, View, Text, FlatList } from "react-native";
+
+import { db } from "../services/controller";
+import { collection, getDocs } from "firebase/firestore";
 
 import Card from "../components/card";
 
 export default function Products({navigation}) {
-    const [produtos, setProdutos] = useState([
-        {id: 1, nome: "Camiseta", valor: 50.00, imagem: "https://estampalize.com.br/wp-content/uploads/2022/12/camiseta-colorida-com-estampa-dourada-1.webp"},
-        {id: 2, nome: "Calça", valor: 45.00, imagem: "https://images.tcdn.com.br/img/img_prod/769687/calca_jeans_masculina_mais_comprida_longa_premium_jamer_2649_1_d32393952c59a63e5a115ae22d492fd0.jpg"},
-        {id: 3, nome: "Moletom", valor: 60.00, imagem: "https://images.tcdn.com.br/img/img_prod/774007/moletom_brasil_college_fem_1551_2_a38fd46dfc50c933cd580d885be6e1fb.jpg"},
-        {id: 4, nome: "Tênis", valor: 35.00, imagem: "https://imgcentauro-a.akamaihd.net/800x800/97360651A1.jpg"},
-    ])
+    const [produtos, setProducts] = useState([])
+
+        useEffect(() => {
+            async function carryProducts() {
+                try {
+                    const querySnapshot = await getDocs(collection(db, 'products'));
+                    const list = [];
+                    querySnapshot.forEach((doc) => {
+                        list.push({ id: doc.id, ...doc.data() });
+                    });
+                    setProducts(list);
+                } catch(error) {
+                    console.log("Erro ao buscar o produto: " + error);
+                }
+            }
+
+            carryProducts();
+        }, []);
+
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Produtos:</Text>

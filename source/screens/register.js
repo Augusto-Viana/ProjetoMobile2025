@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, TextInput, Button, TouchableOpacity} from "react-native";
+import {StyleSheet, Text, View, TextInput, Button} from "react-native";
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../services/controller";
@@ -27,13 +27,13 @@ export default function Register ({navigation}) {
                 </View>
                 <View style={styles.input}>
                     <TextInput style={styles.input2} 
-                    placeholder='E-mail' 
+                    placeholder='E-mail: ' 
                     value={email}
                     onChangeText={setEmail}/>
                 </View>
                 <View style={styles.input}>
                     <TextInput style={styles.input2} 
-                        placeholder='Senha' 
+                        placeholder='Senha: ' 
                         value={password}
                         onChangeText={setSenha}
                         secureTextEntry = {true}/>
@@ -42,9 +42,6 @@ export default function Register ({navigation}) {
                     <Button title="CADASTRAR" color="#DB0F00"
                     onPress={registerUser}/>
                 </View>
-                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                    <Text style={styles.link}>Já tem uma conta? Faça login aqui.</Text>
-                </TouchableOpacity>
             </View>  
         </View>
     )
@@ -92,8 +89,4 @@ const styles = StyleSheet.create ({
         justifyContent: "center",
         alignItems: "center",    
     },
-    link: {
-        textDecorationLine: "underline",
-        color: "#DB0F00"
-    }
 })
